@@ -5,6 +5,13 @@
 -->
 <resources>
 
+    <!-- Expressive UI -->
+    <string name="dolby_credits">Kredit</string>
+    <string name="dolby_more_options">Opsi lainnya</string>
+    <string name="dolby_save_preset">Simpan preset</string>
+    <string name="dolby_equalizer_summary">Atur suaramu, frekuensi demi frekuensi</string>
+    <string name="dolby_advanced_summary">Sesuaikan detail pengalaman mendengarmu dengan lebih presisi</string>
+    
     <!-- Dolby Atmos -->
     <string name="dolby_title">Dolby Atmos</string>
     <string name="dolby_summary">Pengalaman audio yang imersif</string>
