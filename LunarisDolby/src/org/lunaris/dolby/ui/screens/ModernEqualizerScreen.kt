@@ -300,8 +300,12 @@ private fun ModernEqualizerContent(
                         )
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
-                            text = "This ${state.currentPreset.bandMode.displayName} preset cannot be edited in ${state.bandMode.displayName} mode. " +
-                                  "Switch to ${state.currentPreset.bandMode.displayName} or select a compatible preset.",
+                            text = stringResource(
+                                R.string.preset_band_mismatch,
+                                stringResource(R.string.band_count_label, state.currentPreset.bandMode.bandCount),
+                                stringResource(R.string.band_count_label, state.bandMode.bandCount),
+                                stringResource(R.string.band_count_label, state.currentPreset.bandMode.bandCount)
+                            ),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onErrorContainer
                         )
@@ -320,7 +324,7 @@ private fun ModernEqualizerContent(
             Column(modifier = Modifier.padding(20.dp)) {
                 EqualizerSectionHeader(
                     icon = Icons.Default.Visibility,
-                    title = "Equalizer View",
+                    title = stringResource(R.string.equalizer_view_title),
                     modifier = Modifier.padding(bottom = 12.dp)
                 )
                 
@@ -329,15 +333,15 @@ private fun ModernEqualizerContent(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     ViewModeTile(
-                        title = "Curve",
+                        title = stringResource(R.string.curve_option),
                         icon = Icons.Default.ShowChart,
                         isSelected = viewMode == EqualizerViewMode.CURVE,
                         onClick = { onViewModeChange(EqualizerViewMode.CURVE) },
                         modifier = Modifier.weight(1f)
                     )
-                    
+
                     ViewModeTile(
-                        title = "Sliders",
+                        title = stringResource(R.string.sliders_option),
                         icon = Icons.Default.Tune,
                         isSelected = viewMode == EqualizerViewMode.SLIDERS,
                         onClick = { onViewModeChange(EqualizerViewMode.SLIDERS) },
@@ -416,8 +420,8 @@ private fun CurveViewContent(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = if (canEdit) "Interactive Frequency Response" 
-                          else "Frequency Response (Read-only)",
+                    text = if (canEdit) stringResource(R.string.interactive_frequency_response)
+                          else stringResource(R.string.frequency_response_readonly),
                     style = MaterialTheme.typography.titleMediumEmphasized,
                     color = if (canEdit) MaterialTheme.colorScheme.onSurface
                           else MaterialTheme.colorScheme.onSurfaceVariant
@@ -428,7 +432,7 @@ private fun CurveViewContent(
                           else MaterialTheme.colorScheme.errorContainer
                 ) {
                     Text(
-                        text = "${state.bandMode.bandCount} bands",
+                        text = stringResource(R.string.bands_count, state.bandMode.bandCount),
                         style = MaterialTheme.typography.labelMediumEmphasized,
                         color = if (canEdit) MaterialTheme.colorScheme.onSecondaryContainer
                               else MaterialTheme.colorScheme.onErrorContainer,
@@ -437,10 +441,10 @@ private fun CurveViewContent(
                 }
             }
             Text(
-                text = if (canEdit) 
-                    "Drag the control points to adjust gain (±15 dB) • ${getFrequencyRange(state.bandGains)}"
+                text = if (canEdit)
+                    stringResource(R.string.drag_control_points, getFrequencyRange(state.bandGains))
                 else
-                    "Read-only view • Band mode mismatch",
+                    stringResource(R.string.readonly_band_mismatch),
                 style = MaterialTheme.typography.bodySmall,
                 color = if (canEdit) MaterialTheme.colorScheme.onSurfaceVariant
                       else MaterialTheme.colorScheme.error,
@@ -534,7 +538,7 @@ private fun SlidersViewContent(
                 ) {
                     Text(
                         text = if (canEdit) stringResource(R.string.dolby_geq_slider_label_gain)
-                              else "${stringResource(R.string.dolby_geq_slider_label_gain)} (Read-only)",
+                              else stringResource(R.string.gain_readonly_label, stringResource(R.string.dolby_geq_slider_label_gain)),
                         style = MaterialTheme.typography.titleMediumEmphasized,
                         color = if (canEdit) MaterialTheme.colorScheme.onSurface
                               else MaterialTheme.colorScheme.onSurfaceVariant
@@ -1086,7 +1090,7 @@ private fun BandModeTile(
             Spacer(modifier = Modifier.height(6.dp))
             
             Text(
-                text = mode.displayName,
+                text = stringResource(R.string.band_count_label, mode.bandCount),
                 style = if (isSelected) MaterialTheme.typography.labelSmallEmphasized
                     else MaterialTheme.typography.labelSmall,
                 color = if (isSelected)
