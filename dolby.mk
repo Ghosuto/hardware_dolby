@@ -30,13 +30,6 @@ DEVICE_MANIFEST_FILE += \
     $(DOLBY_PATH)/configs/vintf/vendor.dolby.hardware.dms@2.0-service.xml \
     $(DOLBY_PATH)/configs/vintf/vendor.dolby.media.c2@1.0-service.xml
 
-# Build codec2 packages
-PRODUCT_PACKAGES += \
-    libavservices_minijail.vendor \
-    libcodec2_hidl@1.2.vendor \
-    libstagefright_foundation-v33 \
-    libcodec2_soft_common.vendor
-
 # Configs
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/configs/dax/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
@@ -56,9 +49,17 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PACKAGES += \
     LunarisDolby
 
-# Init
+# USE_HWDAP must be defined before inheriting this product file.
+$(call soong_config_set_bool,dolby_codec2,use_hwdap,$(USE_HWDAP))
+
+ifeq ($(USE_HWDAP),true)
 PRODUCT_PACKAGES += \
-    init.dolby.rc
+    libhwdap
+else
+PRODUCT_PACKAGES += \
+    libswdap \
+    libcodec2_soft_dolby
+endif
 
 # Proprietary-files
 PRODUCT_COPY_FILES += \
@@ -72,7 +73,6 @@ PRODUCT_PACKAGES += \
     vendor.dolby.media.c2@1.0-service \
     libcodec2_soft_ac4dec \
     libcodec2_soft_ddpdec \
-    libcodec2_soft_dolby \
     libcodec2_store_dolby \
     libdapparamstorage \
     libdeccfg \
@@ -85,11 +85,3 @@ PRODUCT_PACKAGES += \
     libswgamedap \
     libswspatializer \
     libswvqe
-
-ifeq ($(USE_HWDAP),true)
-PRODUCT_PACKAGES += \
-    libhwdap
-else
-PRODUCT_PACKAGES += \
-    libswdap
-endif
