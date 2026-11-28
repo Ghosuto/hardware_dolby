@@ -792,4 +792,3 @@ private fun GithubAvatar(
         }
     }
 }
-
