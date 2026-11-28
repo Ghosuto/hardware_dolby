@@ -42,85 +42,37 @@ $(call inherit-product, hardware/dolby/dolby.mk)
 
 ### 4. Spatial Audio
 
-Spatial Audio is enabled by default, as in earlier builds. The Dolby effect
-libraries remain included because DAP may depend on them. Devices must still
-provide a compatible spatializer effect registration and output mix port/routes
-in their audio configuration.
+Spatial Audio is enabled by default. Devices must provide compatible audio effects and audio policy configurations.
 
-For a device with a working native spatializer output, no compatibility flag is
-needed. For a legacy HIDL primary HAL that cannot open the spatializer output
-correctly, set the following **before** inheriting `dolby.mk`:
+| Option | Default | Description |
+| --- | --- | --- |
+| `DOLBY_SPATIALIZER` | `true` | Enable Spatial Audio properties. |
+| `DOLBY_SPATIALIZER_COMPAT` | `false` | Enable the legacy HIDL HAL compatibility shim (experimental). |
+| `DOLBY_SPATIALIZER_PRIMARY_HAL` | `auto` | Override the original primary HAL suffix, if needed. |
+
+For legacy HIDL HALs without working native spatializer output:
 
 ```makefile
-DOLBY_SPATIALIZER := true
 DOLBY_SPATIALIZER_COMPAT := true
+
 $(call inherit-product, hardware/dolby/dolby.mk)
 ```
 
-`USE_HWDAP := true` is independent of these options and may be set in the same
-product makefile when hardware DAP is supported.
+The compatibility shim is automatically built and installed. No external patches or binary modifications are required.
 
-| Option | Default | Purpose |
-| --- | --- | --- |
-| `DOLBY_SPATIALIZER` | `true` | Include Dolby's spatializer enablement properties. |
-| `DOLBY_SPATIALIZER_COMPAT` | off | Install and select the experimental legacy primary HAL proxy. |
-| `DOLBY_SPATIALIZER_PRIMARY_HAL` | automatic | Override the original HAL filename variant, without `audio.primary.` or `.so`. |
-
-Setting `DOLBY_SPATIALIZER := false` omits Dolby's spatializer properties;
-it does not override settings supplied elsewhere in the device tree. The
-compatibility flag requires Spatial Audio to be enabled. The older
-`DOLBY_SPATIALIZER_HIDL_DEEP_BUFFER` flag is accepted as an alias if the new
-compatibility flag is unset.
-
-#### Legacy HIDL compatibility (experimental)
-
-No external patches, post-build binary modification or manual shim injection
-are required. Make/Soong installs `audio.primary.dolby_compat.so` into vendor
-and selects it via `ro.hardware.audio.primary=dolby_compat`. The proxy loads
-and retains the original primary HAL, then intercepts its C ABI
-`open_output_stream` callback. Only exact `AUDIO_OUTPUT_FLAG_SPATIALIZER` and
-`FAST | DEEP_BUFFER` requests are mapped to `DEEP_BUFFER`. Other flags, arguments,
-return codes and callbacks are preserved. The legacy combination is not unique
-to spatialization, so enable this workaround only on devices that need it.
-
-The proxy searches the original ODM/vendor module using `ro.hardware`,
-`ro.product.board`, `ro.board.platform`, `ro.arch`, then `default` (ODM before
-vendor for each variant). If the original HAL is selected through a custom
-`ro.hardware.audio.primary` assignment, remove that assignment from the device
-configuration and set its original suffix instead, for example:
+If automatic HAL detection fails, specify the original HAL suffix:
 
 ```makefile
 DOLBY_SPATIALIZER_PRIMARY_HAL := taro
 ```
 
-The override is passed to Soong at build time. The original HAL must remain
-installed; do not rename or remove it. The proxy is intended for standard
-binderized HIDL audio services using the legacy C module loader and writable
-`audio_hw_device_t` tables. It is not a native AIDL adapter and does not support
-vendor APEX or custom HAL loaders. Do not enable it on a HAL with a working
-native spatializer. It requires a compatible deep-buffer DSP path, including
-support for concurrent media and spatializer outputs. It cannot create missing
-DSP graphs or ACDB calibration. No new platform SELinux rules are included;
-custom vendor policies or linker namespaces may require device-specific work.
-
-Remove older spatializer flag-remapping patches before evaluating this proxy.
-Check on-device:
-
-```sh
-adb shell getprop ro.hardware.audio.primary
-adb logcat -s DolbyAudioCompat
-adb shell dumpsys media.audio_policy
-adb shell dumpsys media.audio_flinger
-```
-
-Expected with the proxy enabled: `dolby_compat` property, a log naming the
-original primary module, and `Spatializer output ... -> DEEP_BUFFER` on relevant
-opens. Verify boot, media, capture, calls, USB and Bluetooth routing, effect
-activation and simultaneous playback. To roll back, unset the compatibility
-flag (or set it to `false`) and rebuild; restore the device's original HAL
-property if it previously had an explicit override.
-
-The proxy has host-side mock tests, not full Android build or device validation.
+**Notes:**
+- `USE_HWDAP` is independent of Spatial Audio.
+- Do not enable the shim on devices with working native spatializer output.
+- Native AIDL HALs are not supported by the shim.
+- A compatible deep-buffer DSP path is required.
+- Remove previous spatializer flag-remapping patches before enabling compatibility.
+- The shim has been tested with a mock HAL; device validation is pending.
 
 ### 5. VINTF Configuration
 
