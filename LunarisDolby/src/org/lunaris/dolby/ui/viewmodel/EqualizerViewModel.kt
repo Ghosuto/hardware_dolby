@@ -140,7 +140,7 @@ class EqualizerViewModel(application: Application) : AndroidViewModel(applicatio
                 _autoEqReady.value = true
             } catch (e: Exception) {
                 DolbyConstants.dlog(TAG, "Error initializing AutoEQ: ${e.message}")
-                ToastHelper.showToast(ctx, "Failed to load AutoEQ profiles")
+                ToastHelper.showToast(ctx, ctx.getString(R.string.autoeq_load_failed_toast))
             } finally {
                 _isSearchLoading.value = false
             }
@@ -163,11 +163,11 @@ class EqualizerViewModel(application: Application) : AndroidViewModel(applicatio
 
                     applyAutoEqProfile(profile.name, profile.graphicEq)
                 } else {
-                    ToastHelper.showToast(ctx, "Failed to download profile for ${entry.name}")
+                    ToastHelper.showToast(ctx, ctx.getString(R.string.autoeq_download_failed_toast, entry.name))
                 }
             } catch (e: Exception) {
                 DolbyConstants.dlog(TAG, "Error downloading AutoEQ profile: ${e.message}")
-                ToastHelper.showToast(ctx, "Failed to download profile for ${entry.name}")
+                ToastHelper.showToast(ctx, ctx.getString(R.string.autoeq_download_failed_toast, entry.name))
             } finally {
                 _isSearchLoading.value = false
             }
@@ -396,8 +396,12 @@ class EqualizerViewModel(application: Application) : AndroidViewModel(applicatio
                     if (!isFlatPreset && state.currentPreset.bandMode != currentBandMode) {
                         ToastHelper.showToast(
                             context,
-                            "Cannot edit ${state.currentPreset.bandMode.displayName} preset in ${currentBandMode.displayName} mode. " +
-                            "Switch to ${state.currentPreset.bandMode.displayName} or select a different preset."
+                            context.getString(
+                                R.string.preset_band_mismatch,
+                                context.getString(R.string.band_count_label, state.currentPreset.bandMode.bandCount),
+                                context.getString(R.string.band_count_label, currentBandMode.bandCount),
+                                context.getString(R.string.band_count_label, state.currentPreset.bandMode.bandCount)
+                            )
                         )
                         return@launch
                     }

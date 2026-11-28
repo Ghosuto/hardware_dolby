@@ -4,53 +4,62 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+
+    <!-- Expressive UI -->
+    <string name="dolby_credits">Авторы и участники</string>
+    <string name="dolby_more_options">Другие параметры</string>
+    <string name="dolby_save_preset">Сохранить пресет</string>
+    <string name="dolby_equalizer_summary">Настройте звучание по частотам</string>
+    <string name="dolby_advanced_summary">Точная настройка звучания</string>
+
     <!-- Dolby Atmos -->
     <string name="dolby_title">Dolby Atmos</string>
-    <string name="dolby_summary">Окунитесь в иммерсивный звук</string>
+    <string name="dolby_summary">Погрузитесь в объёмное звучание</string>
     <string name="dolby_enable">Включить Dolby Atmos</string>
     <string name="dolby_profile_title">Выберите профиль</string>
     <string name="dolby_preset">Эквалайзер</string>
-    <string name="dolby_off">Выкл</string>
-    <string name="dolby_on">Вкл</string>
+    <string name="dolby_off">Выкл.</string>
+    <string name="dolby_on">Вкл.</string>
     <string name="dolby_low">Низкий</string>
     <string name="dolby_medium">Средний</string>
     <string name="dolby_high">Высокий</string>
     <string name="dolby_max">Максимум</string>
     <string name="dolby_unknown">Неизвестно</string>
-    <string name="dolby_on_with_profile">Вкл (%1$s)</string>
+    <string name="dolby_on_with_profile">Вкл. (%1$s)</string>
     <string name="dolby_category_settings">Настройка звука</string>
     <string name="dolby_category_adv_settings">Дополнительные настройки</string>
-    <string name="dolby_adv_settings_footer">Выберите другой профиль, чтобы открыть дополнительные настройки.</string>
+    <string name="dolby_adv_settings_footer">Выберите другой профиль для доступа к дополнительным настройкам.</string>
     <string name="dolby_bass_enhancer">Усиление басов</string>
     <string name="dolby_bass_level">Уровень басов</string>
-    <string name="dolby_bass_curve">Характер басов</string>
+    <string name="dolby_bass_curve">Характер баса</string>
     <string name="dolby_bass_curve_balanced">Сбалансированный</string>
-    <string name="dolby_bass_curve_sub_boost">Глубокий</string>
-    <string name="dolby_bass_curve_punch">Плотный</string>
+    <string name="dolby_bass_curve_sub_boost">Глубокий бас</string>
+    <string name="dolby_bass_curve_punch">Плотный бас</string>
     <string name="dolby_treble_enhancer">Усиление высоких частот</string>
-    <string name="dolby_treble_level">Яркость звучания</string>
-    <string name="dolby_dialogue_enhancer">Улучшение речи</string>
+    <string name="dolby_treble_level">Уровень высоких частот</string>
+    <string name="dolby_dialogue_enhancer">Улучшение чёткости диалогов</string>
     <string name="dolby_spk_virtualizer">Объёмный звук для динамиков</string>
     <string name="dolby_hp_virtualizer">Объёмный звук для наушников</string>
     <string name="dolby_volume_leveler">Выравнивание громкости</string>
-    <string name="dolby_bass_enhancer_summary">Добавляет басам глубину и насыщенность</string>
-    <string name="dolby_treble_enhancer_summary">Делает звук ярче и детальнее</string>
-    <string name="dolby_dialogue_enhancer_summary">Повышает разборчивость речи и диалогов</string>
-    <string name="dolby_spk_virtualizer_summary">Создаёт эффект объёмного звука через динамики</string>
-    <string name="dolby_hp_virtualizer_summary">Создаёт эффект объёмного звука в наушниках</string>
-    <string name="dolby_volume_leveler_summary">Поддерживает комфортный уровень громкости</string>
+    <string name="dolby_bass_enhancer_summary">Усиливает низкие частоты, делая бас глубже</string>  
+    <string name="dolby_treble_enhancer_summary">Усиливает высокие частоты для более чёткого звучания</string>
+    <string name="dolby_dialogue_enhancer_summary">Повышает разборчивость речи</string>  
+    <string name="dolby_spk_virtualizer_summary">Создаёт эффект объёмного звука через динамики</string>  
+    <string name="dolby_hp_virtualizer_summary">Создаёт эффект объёмного звука в наушниках</string>  
+    <string name="dolby_volume_leveler_summary">Сглаживает перепады громкости при воспроизведении</string>  
     <string name="dolby_connect_headphones">Подключить наушники</string>
     <string name="dolby_reset_all">Сбросить профили</string>
-    <string name="dolby_reset_all_message">Все профили будут сброшены к заводским настройкам.</string>
+    <string name="dolby_reset_all_message">Все профили будут сброшены до заводских настроек.</string>
     <string name="dolby_reset_all_toast">Все профили успешно сброшены</string>
-    <string name="dolby_hp_virtualizer_dolby_strength">Усиление объёма</string>
-    <string name="dolby_dialogue_enhancer_dolby_strength">Усиление речи</string>
+    <string name="dolby_hp_virtualizer_dolby_strength">Интенсивность объёмного звука</string>
+    <string name="dolby_dialogue_enhancer_dolby_strength">Интенсивность обработки диалогов</string>
     <string name="dolby_notification_listener_label">Служба Dolby Atmos</string>
     <string name="loading">Загрузка…</string>
 
     <!-- Dolby profiles -->
     <string name="dolby_profile_dynamic">Динамический</string>
-    <string name="dolby_profile_video">Кино/Видео</string>
+    <string name="dolby_profile_dynamic_summary">Автоматически подстраивает звук под контент</string>
+    <string name="dolby_profile_video">Кино и видео</string>
     <string name="dolby_profile_music">Музыка</string>
     <string name="dolby_profile_game">Игры</string>
     <string name="dolby_profile_work">Работа</string>
@@ -58,7 +67,7 @@
     <string name="dolby_profile_mood">Атмосферный</string>
 
     <!-- Dolby equalizer presets -->
-    <string name="dolby_preset_default">Без обработки</string>
+    <string name="dolby_preset_default">Без коррекции (выкл.)</string>
     <string name="dolby_preset_rock">Рок</string>
     <string name="dolby_preset_jazz">Джаз</string>
     <string name="dolby_preset_pop">Поп</string>
@@ -72,14 +81,14 @@
     <string name="dolby_preset_acoustic">Акустика</string>
     <string name="dolby_preset_bass">Усиление басов</string>
     <string name="dolby_preset_beats">Beats</string>
-    <string name="dolby_preset_clear">Кристально чистый</string>
-    <string name="dolby_preset_deep">Глубокий</string>
+    <string name="dolby_preset_clear">Чистое звучание</string>
+    <string name="dolby_preset_deep">Глубокое звучание</string>
     <string name="dolby_preset_dubstep">Дабстеп</string>
     <string name="dolby_preset_hardstyle">Хардстайл</string>
     <string name="dolby_preset_movie">Кино</string>
     <string name="dolby_preset_rb">R&amp;B</string>
     <string name="dolby_preset_vocal">Усиление вокала</string>
-    <string name="dolby_preset_custom">Свой пресет</string>
+    <string name="dolby_preset_custom">Пользовательский</string>
     <string name="equalizer">Эквалайзер</string>
     <string name="advanced">Дополнительно</string>
     <string name="home">Главная</string>
@@ -93,43 +102,56 @@
     <string name="dolby_geq_delete_preset">Удалить пресет</string>
     <string name="dolby_geq_delete_preset_prompt">Удалить этот пресет?</string>
     <string name="dolby_geq_reset_gains">Сбросить усиление</string>
-    <string name="dolby_geq_reset_gains_prompt">Сбросить этот пресет к настройкам по умолчанию?</string>
-    <string name="dolby_geq_preset_name_exists">Пресет с таким названием уже существует!</string>
-    <string name="dolby_geq_preset_name_too_long">Название пресета слишком длинное!</string>
-    <string name="band_mode_mismatch">Несоответствие режима полос</string>
-    <string name="frequency_response">Частотная характеристика</string>
+    <string name="dolby_geq_reset_gains_prompt">Восстановить настройки этого пресета по умолчанию?</string>
+    <string name="dolby_geq_preset_name_exists">Пресет с таким названием уже существует</string>
+    <string name="dolby_geq_preset_name_too_long">Слишком длинное название пресета</string>
+    <string name="band_mode_mismatch">Несовпадение числа полос</string>
+    <string name="frequency_response">АЧХ</string>
     <string name="locked">Заблокировано</string>
-    <string name="band_configuration">Настройка полос</string>
-    <string name="choose_equalizer_precision">Выберите точность эквалайзера: больше полос — точнее настройка</string>
+    <string name="band_configuration">Конфигурация полос</string>
+    <string name="choose_equalizer_precision">Чем больше полос, тем точнее настройка эквалайзера</string>
+    <string name="band_tuner">Точная настройка полос</string>
+    <string name="band_tuner_desc">Выбирайте полосы по очереди и регулируйте усиление с шагом 0,1 дБ</string>
+    <string name="band_tuner_position">Полоса %1$d из %2$d</string>
+    <string name="band_tuner_label">Полоса %1$d · %2$s</string>
+    <string name="band_tuner_previous">Предыдущая полоса</string>
+    <string name="band_tuner_next">Следующая полоса</string>
+    <string name="band_tuner_decrement">−0,1 дБ</string>
+    <string name="band_tuner_reset">0 дБ</string>
+    <string name="band_tuner_increment">+0,1 дБ</string>
 
     <!-- Dolby intelligent EQ -->
     <string name="dolby_ieq">Интеллектуальный эквалайзер</string>
     <string name="dolby_balanced">Сбалансированный</string>
     <string name="dolby_warm">Тёплый</string>
     <string name="dolby_detailed">Детальный</string>
+    <string name="dolby_ieq_off_summary">Текущий профиль без интеллектуального эквалайзера.</string>
+    <string name="dolby_ieq_detailed_summary">Повышает детализацию и чёткость звучания.</string>
+    <string name="dolby_ieq_balanced_summary">Поддерживает баланс низких, средних и высоких частот.</string>
+    <string name="dolby_ieq_warm_summary">Делает звучание мягче и теплее.</string>
 
     <!-- Per-App Audio Profiles -->
     <string name="app_profiles_title">Профили приложений</string>
-    <string name="app_profiles_desc">Назначайте отдельным приложениям разные аудиопрофили для оптимального звучания в зависимости от типа контента</string>
+    <string name="app_profiles_desc">Назначайте приложениям аудиопрофили в зависимости от типа контента</string>
     <string name="app_profiles_search_hint">Поиск приложений…</string>
     <string name="app_profiles_no_apps">Приложения не найдены</string>
     <string name="app_profiles_loading">Загрузка приложений…</string>
-    <string name="app_profiles_clear_all">Очистить профили приложений</string>
-    <string name="app_profiles_clear_all_message">Все назначения профилей для приложений будут удалены. Приложения будут использовать профиль по умолчанию.</string>
+    <string name="app_profiles_clear_all">Удалить все профили приложений</string>
+    <string name="app_profiles_clear_all_message">Все назначения будут удалены. Приложения будут использовать профиль по умолчанию.</string>
     <string name="app_profiles_manage">Управление профилями приложений</string>
     <string name="app_profiles_default">По умолчанию</string>
     <string name="app_profiles_assigned">Назначен: %1$s</string>
     <string name="app_profiles_headphone_only">Только для наушников и Bluetooth</string>
-    <string name="app_profiles_headphone_only_description">Переключать профили только при подключённых наушниках или Bluetooth-аудиоустройствах</string>
+    <string name="app_profiles_headphone_only_description">Переключать профили только при подключении наушников или Bluetooth-аудиоустройств</string>
     <string name="app_profiles_permission_required">Требуется разрешение</string>
-    <string name="app_profiles_permission_required_details">Для автоматического переключения профилей в зависимости от активного приложения предоставьте доступ к данным об использовании приложений на следующем экране.</string>
+    <string name="app_profiles_permission_required_details">На следующем экране разрешите доступ к данным об использовании приложений, чтобы профили переключались автоматически.</string>
     <string name="app_profiles_grant_permission">Предоставить разрешение</string>
     <string name="app_profiles_search_placeholder">Поиск приложений…</string>
     <string name="app_profiles_no_apps_found">Приложения не найдены</string>
     <string name="app_profiles_retry">Повторить</string>
     <string name="app_profiles_change">Изменить</string>
     <string name="app_profiles_auto_switch">Автопереключение профилей</string>
-    <string name="app_profiles_show_toasts">Показывать уведомления</string>
+    <string name="app_profiles_show_toasts">Показывать всплывающие сообщения</string>
 
     <!-- Preset Import/Export -->
     <string name="preset_import_export">Импорт и экспорт пресетов</string>
@@ -146,7 +168,7 @@
     <string name="preset_import_failed">Не удалось импортировать пресет</string>
 
     <!-- Notification Access -->
-    <string name="notification_access_required">Нужен доступ к уведомлениям</string>
+    <string name="notification_access_required">Требуется доступ к уведомлениям</string>
     <string name="notification_access_required_desc">Разрешите доступ к уведомлениям для фоновой работы Dolby Atmos и автоматического переключения профилей.</string>
     <string name="enable_notification_access">Разрешить доступ</string>
     <string name="enable_notification_access_desc">Разрешите доступ к уведомлениям для фоновой работы Dolby Atmos и автоматического переключения профилей.</string>
@@ -154,14 +176,14 @@
     <string name="open_settings">Открыть настройки</string>
     <string name="cancel">Отмена</string>
 
-    <!-- import export -->
+    <!--import export -->
     <string name="import_export_presets">Импорт и экспорт пресетов</string>
     <string name="import_presets">Импортировать пресеты</string>
     <string name="import_presets_description">Импорт пресетов из файлов или буфера обмена</string>
     <string name="import_single_file">Один файл</string>
     <string name="import_batch">Пакетный импорт</string>
     <string name="import_from_clipboard">Из буфера обмена</string>
-    <string name="your_custom_presets">Ваши пользовательские пресеты</string>
+    <string name="your_custom_presets">Мои пресеты</string>
     <string name="processing">Обработка…</string>
     <string name="batch_export">Пакетный экспорт</string>
     <string name="batch_export_description">Экспортировать все пользовательские пресеты (%1$s) в один файл?</string>
@@ -173,22 +195,87 @@
     <string name="dolby_mid_enhancer_summary">Усиливает средние частоты для более чёткого звучания вокала и инструментов</string>
 
     <!-- Per-device state memory -->
-    <string name="device_state_memory_title">Настройки для каждого устройства</string>
-    <string name="device_state_memory_summary">Сохранять настройки Dolby отдельно для каждого аудиоустройства: наушников, динамиков и Bluetooth-устройств</string>
-    <string name="device_state_memory_conflict_toast">Профили приложений отключены — они несовместимы с настройками для отдельных устройств</string>
-    <string name="device_state_memory_conflict_summary">⚠ Недоступно, пока активны настройки для отдельных устройств</string>
-    <string name="app_profile_conflict_toast">Настройки для отдельных устройств отключены — они несовместимы с профилями приложений</string>
-    <string name="app_profile_conflict_summary">⚠ Недоступно, пока активны профили приложений</string>
+    <string name="device_state_memory_title">Настройки для каждого аудиоустройства</string>
+    <string name="device_state_memory_summary">Сохранять настройки Dolby отдельно для наушников, динамиков и Bluetooth-аудиоустройств</string>
+    <string name="device_state_memory_conflict_toast">Профили приложений отключены: включены индивидуальные настройки аудиоустройств</string>
+    <string name="device_state_memory_conflict_summary">⚠ Недоступно при включённых индивидуальных настройках аудиоустройств</string>
+    <string name="app_profile_conflict_toast">Индивидуальные настройки аудиоустройств отключены: включены профили приложений</string>
+    <string name="app_profile_conflict_summary">⚠ Недоступно при включённых профилях приложений</string>
     <string name="device_state_memory_section_title">Настройки аудиоустройств</string>
 
-    <!-- Профиль AutoEQ -->
+    <!-- AutoEQ Profile -->
     <string name="dolby_autoeq_title">Применить профиль AutoEQ</string>
     <string name="dolby_autoeq_applied">Применён профиль AutoEQ для %1$s</string>
     <string name="dolby_autoeq_preset_name">AutoEQ: %1$s</string>
-    <string name="dolby_autoeq_search_hint">Поиск среди более чем 8000 профилей...</string>
-    <string name="dolby_autoeq_currently_applied">Применён сейчас</string>
+    <string name="dolby_autoeq_search_hint">Поиск среди 8000 и более профилей…</string>
+    <string name="dolby_autoeq_currently_applied">Применённый профиль</string>
     <string name="dolby_autoeq_clear">Очистить поиск</string>
     <string name="dolby_autoeq_search">Поиск</string>
     <string name="dolby_autoeq_active">Активный профиль</string>
     <string name="dolby_autoeq_selected">Выбранный профиль</string>
+
+    <!-- Additional UI strings -->
+    <string name="volume_leveler_card_title">Выравнивание громкости</string>
+    <string name="surround_virtualizer_card_title">Виртуализация объёмного звука</string>
+    <string name="dialogue_enhancement_card_title">Улучшение чёткости диалогов</string>
+    <string name="equalizer_view_title">Вид эквалайзера</string>
+    <string name="curve_option">Кривая</string>
+    <string name="sliders_option">Ползунки</string>
+    <string name="delete_preset_title">Удалить пресет</string>
+    <string name="credits_title">Авторы и участники</string>
+    <string name="credits_thank_you">Спасибо всем, кто помог в создании этого проекта!</string>
+    <string name="view_on_github">Открыть на GitHub</string>
+    <string name="main_contributors">Основные разработчики</string>
+    <string name="translation_contributors">Переводчики</string>
+    <string name="missing_language">Нет вашего языка?</string>
+    <string name="help_translate">Помогите перевести Lunaris Dolby на ваш язык! Добавляйте и обновляйте переводы на GitHub.</string>
+    <string name="and_all_contributors">И все остальные участники проекта</string>
+    <string name="check_github_list">Полный список участников доступен на GitHub</string>
+    <string name="default_profile">По умолчанию</string>
+    <string name="close_button">Закрыть</string>
+    <string name="submit_pull_request">Отправить Pull Request</string>
+    <string name="interactive_frequency_response">Интерактивная АЧХ</string>
+    <string name="drag_control_points">Перемещайте точки для настройки усиления (±15 дБ) • %1$s</string>
+    <string name="frequency_response_readonly">АЧХ (только просмотр)</string>
+    <string name="readonly_band_mismatch">Только просмотр • Несовпадение числа полос</string>
+    <string name="bands_count">Полос: %1$d</string>
+    <string name="preset_band_mismatch">Пресет %1$s нельзя редактировать в режиме %2$s. Переключитесь на %3$s или выберите совместимый пресет.</string>
+    <string name="delete_preset_confirm_message">Удалить пресет «%1$s» из списка? Это действие нельзя отменить.</string>
+    <string name="preset_deleted_toast">Пресет «%1$s» удалён</string>
+
+    <!-- App Profile Toast Messages -->
+    <string name="profile_reset_toast">Восстановлены настройки профиля по умолчанию</string>
+    <string name="profile_set_toast">Установлен профиль: %1$s</string>
+    <string name="profile_removed_toast">Профиль удалён</string>
+    <string name="all_profiles_cleared_toast">Все профили приложений удалены</string>
+
+    <!-- Preset Import/Export Toast Messages -->
+    <string name="preset_exported_toast">Пресет успешно экспортирован</string>
+    <string name="export_failed_toast">Ошибка экспорта: %1$s</string>
+    <string name="import_failed_toast">Ошибка импорта: %1$s</string>
+    <string name="batch_export_success_toast">Экспортировано пресетов: %1$d</string>
+    <string name="batch_export_failed_toast">Ошибка пакетного экспорта: %1$s</string>
+    <string name="batch_import_failed_toast">Ошибка пакетного импорта: %1$s</string>
+    <string name="preset_imported_toast">Пресет «%1$s» импортирован (%2$s)</string>
+    <string name="batch_import_success_toast">Импортировано пресетов: %1$d из %2$d</string>
+
+    <!-- AutoEQ Toast Messages -->
+    <string name="autoeq_load_failed_toast">Не удалось загрузить профили AutoEQ</string>
+    <string name="autoeq_download_failed_toast">Не удалось скачать профиль для %1$s</string>
+    <string name="band_count_label">Полос: %1$d</string>
+    <string name="preset_imported_clipboard_toast">Пресет импортирован из буфера обмена (%1$s)</string>
+    <string name="clipboard_import_failed_toast">Ошибка импорта из буфера обмена: %1$s</string>
+    <string name="preset_copied_toast">Пресет скопирован в буфер обмена</string>
+    <string name="copy_failed_toast">Ошибка копирования: %1$s</string>
+    <string name="share_failed_toast">Не удалось поделиться: %1$s</string>
+    <string name="preset_band_summary">%1$s • полос: %2$d</string>
+    <string name="navigate_back">Назад</string>
+    <string name="export_to_file">Экспортировать в файл</string>
+    <string name="copy_to_clipboard">Копировать в буфер обмена</string>
+    <string name="share">Поделиться</string>
+    <string name="delete">Удалить</string>
+    <string name="clear_all">Очистить всё</string>
+    <string name="refresh">Обновить</string>
+    <string name="clear_search">Очистить поиск</string>
+    <string name="gain_readonly_label">%1$s (только просмотр)</string>
 </resources>

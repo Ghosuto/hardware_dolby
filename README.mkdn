@@ -40,7 +40,41 @@ USE_HWDAP := true
 $(call inherit-product, hardware/dolby/dolby.mk)
 ```
 
-### 4. VINTF Configuration
+### 4. Spatial Audio
+
+Spatial Audio is enabled by default. Devices must provide compatible audio effects and audio policy configurations.
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `DOLBY_SPATIALIZER` | `true` | Enable Spatial Audio properties. |
+| `DOLBY_SPATIALIZER_COMPAT` | `false` | Enable the legacy HIDL HAL compatibility shim (experimental). |
+| `DOLBY_SPATIALIZER_PRIMARY_HAL` | `auto` | Override the original primary HAL suffix, if needed. |
+
+For legacy HIDL HALs without working native spatializer output:
+
+```makefile
+DOLBY_SPATIALIZER_COMPAT := true
+
+$(call inherit-product, hardware/dolby/dolby.mk)
+```
+
+The compatibility shim is automatically built and installed. No external patches or binary modifications are required.
+
+If automatic HAL detection fails, specify the original HAL suffix:
+
+```makefile
+DOLBY_SPATIALIZER_PRIMARY_HAL := taro
+```
+
+**Notes:**
+- `USE_HWDAP` is independent of Spatial Audio.
+- Do not enable the shim on devices with working native spatializer output.
+- Native AIDL HALs are not supported by the shim.
+- A compatible deep-buffer DSP path is required.
+- Remove previous spatializer flag-remapping patches before enabling compatibility.
+- The shim has been tested with a mock HAL; device validation is pending.
+
+### 5. VINTF Configuration
 
 Avoid overriding existing device manifest and framework compatibility matrix definitions.
 
@@ -65,7 +99,7 @@ DEVICE_MANIFEST_FILE += \
 
 This preserves previously defined entries and helps prevent the device tree from unintentionally replacing existing VINTF declarations.
 
-### 5. SELinux Configuration
+### 6. SELinux Configuration
 
 For MediaTek (MTK) devices, add the following rule to your device's `hal_dms_default.te`:
 
